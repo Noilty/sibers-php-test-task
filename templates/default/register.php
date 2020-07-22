@@ -1,4 +1,16 @@
+<?php
+/**
+ * @var $alerts
+ */
+?>
+
 <h1>Page/Register</h1>
+
+<? foreach ($alerts as $alert) { ?>
+    <div class="alert alert-info mb-0 mt-3" role="alert">
+        <?= $alert ?>
+    </div>
+<? } ?>
 
 <form method="post">
     <fieldset>
@@ -53,7 +65,7 @@
 
                 <div class="col">
                     <label hidden for="lastName">Фамилия</label>
-                    <input name="userLastName"
+                    <input name="userSurname"
                            type="text"
                            class="form-control"
                            id="lastName"
@@ -75,13 +87,13 @@
         </div>
 
         <div class="form-group">
-            <label hidden for="dateBirth">Дата рождения</label>
-            <input name="userDateBirth"
+            <label hidden for="birthday">Дата рождения</label>
+            <input name="userBirthday"
                    type="date"
                    class="form-control"
-                   id="dateBirth"
+                   id="birthday"
                    placeholder="Имя пользователя (Логин / Никнейм)">
-            <small id="dateBirthHelp" class="form-text text-muted">Укажите дату рождения</small>
+            <small id="birthdayHelp" class="form-text text-muted">Укажите дату рождения</small>
         </div>
     </fieldset>
 

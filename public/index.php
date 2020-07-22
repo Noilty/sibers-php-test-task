@@ -20,7 +20,7 @@ function routeLogin()
         header("Location: /index.php");
     }
 
-    $arrMessage = array();
+    $arrAlerts = array();
 
     if (isset($_POST['submitAuth'])) {
         $arrPost = array(
@@ -29,12 +29,15 @@ function routeLogin()
         );
 
         if (isEmpty($arrPost)) {
-            // Авторизация
+            echo 'Auth';
+        } else {
+            array_push($arrAlerts, 'Все поля должны быть заполнены');
         }
     }
 
     echo view('login', [
-        'title' => 'Page/Login'
+        'title' => 'Page/Login',
+        'alerts' => $arrAlerts
     ]);
 }
 
@@ -47,26 +50,64 @@ function routeRegister()
         header("Location: /index.php");
     }
 
-    $arrMessage = array();
+    $arrAlerts = array();
 
     if (isset($_POST['submitRegister'])) {
         $arrPost = array(
             'login' => xss($_POST['userLogin']),
             'password' => xss($_POST['userPassword']),
-            'rePassword' => xss($_POST['userRePassword']),
+            're_password' => xss($_POST['userRePassword']),
             'name' => xss($_POST['userName']),
-            'lastName' => xss($_POST['userLastName']),
+            'surname' => xss($_POST['userSurname']),
             'gender' => xss($_POST['userGender']),
-            'dateBirth' => xss($_POST['userDateBirth'])
+            'birthday' => xss($_POST['userBirthday']),
+            'reg_date' => date('Y-m-d', time()),
         );
 
         if (isEmpty($arrPost)) {
-            // регистрация
+            $bPasswd = $arrPost['password'] === $arrPost['re_password'];
+            unset($arrPost['re_password']);
+
+            if ($bPasswd) {
+                $arrPost['password'] = password_hash($arrPost['password'], PASSWORD_DEFAULT);
+
+                $searchUser = R::getRow(
+                    'select login from users where login=:login',
+                    [
+                        'login' => $arrPost['login']
+                    ]
+                );;
+
+                if (!$searchUser) {
+                    $newUser = R::dispense('users');
+
+                    foreach ($arrPost as $key => $value) {
+                        if ($key !== 're_password') {
+                            $newUser->$key = $value;
+                        }
+                    }
+
+                    if (R::store($newUser)) {
+                        //loginUser($arrPost['login']);
+                        //header("Location: /index.php");
+                        array_push($arrAlerts, 'Регистрация успешна');
+                    } else {
+                        array_push($arrAlerts, 'Регистрация не удалась');
+                    }
+                } else {
+                    array_push($arrAlerts, 'Имя пользователя уже используется');
+                }
+            } else {
+                array_push($arrAlerts, 'Пароли не совпадают');
+            }
+        } else {
+            array_push($arrAlerts, 'Все поля должны быть заполнены');
         }
     }
 
     echo view('register', [
-        'title' => 'Page/Register'
+        'title' => 'Page/Register',
+        'alerts' => $arrAlerts
     ]);
 }
 

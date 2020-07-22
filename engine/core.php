@@ -9,13 +9,34 @@ define('DEFAULT_TEMPLATE', 'default');
 require ROOT . '/config/main.php';
 require ROOT . '/engine/render.php';
 require ROOT . '/engine/router.php';
+require ROOT . '/engine/rb-mysql.php';
 require ROOT . '/engine/auth.php';
 
 /**
+ * Connection to Database
+ */
+R::setup(
+    $config['db_rb']['dsn'],
+    $config['db_rb']['user_name'],
+    $config['db_rb']['password'],
+    $config['db_rb']['frozen']
+);
+
+/**
+ * Обход ограничения на подчеркивания таблиц
+ * https://redbeanphp.com/index.php?p=/prefixes
+ */
+R::ext('xdispense', function( $type ){
+    return R::getRedBean()->dispense( $type );
+});
+
+if(!R::testConnection()) die('No connection for database!');
+
+/**
  * Check for empty
- * 
+ *
  * @param $array
- * @return array
+ * @return bool
  */
 function isEmpty($array)
 {
@@ -27,7 +48,7 @@ function isEmpty($array)
         }
     }
 
-    return $itemEmpty;
+    return empty($itemEmpty);
 }
 
 /**
@@ -50,6 +71,6 @@ function xss($value)
  */
 function dd($data)
 {
-    echo '<pre>' . print_r($data) . '</pre>';
+    echo '<pre>' . var_dump($data) . '</pre>';
     die();
 }

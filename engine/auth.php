@@ -14,9 +14,9 @@ function isLoggedUser()
 /**
  * Авторизация пользователя
  */
-function loginUser()
+function loginUser($login)
 {
-    // Code
+    echo 'Успех ' . $login;
 }
 
 /**

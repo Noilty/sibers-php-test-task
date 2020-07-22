@@ -1,6 +1,18 @@
+<?php
+/**
+ * @var $alerts
+ */
+?>
+
 <h1>Page/Auth</h1>
 
-<form action="index.php" method="post">
+<? foreach ($alerts as $alert) { ?>
+    <div class="alert alert-info mb-0 pb-3 mb-3" role="alert">
+        <?= $alert ?>
+    </div>
+<? } ?>
+
+<form method="post">
     <div class="form-group">
         <label hidden for="login">Имя пользователя (Логин / Никнейм)</label>
         <input name="userLogin"

@@ -16,7 +16,17 @@ function isLoggedUser()
  */
 function loginUser($login)
 {
-    echo 'Успех ' . $login;
+    $searchUser = R::getRow(
+        'select * from users where login=:login',
+        [
+            'login' => $login
+        ]
+    );
+
+    $_SESSION['auth'] = [
+        'id' => $searchUser['id'],
+        'login' => $searchUser['login'],
+    ];
 }
 
 /**

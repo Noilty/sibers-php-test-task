@@ -18,6 +18,7 @@ function routeLogin()
 {
     if (isLoggedUser()) {
         header("Location: /index.php");
+        die();
     }
 
     $arrAlerts = array();
@@ -29,7 +30,22 @@ function routeLogin()
         );
 
         if (isEmpty($arrPost)) {
-            echo 'Auth';
+            $searchUser = R::getRow(
+                'select * from users where login=:login limit 1',
+                ['login' => $arrPost['login']]
+            );
+
+            if (!empty($searchUser)) {
+                $bPasswd = password_verify($arrPost['password'], $searchUser['password']);
+
+                if ($bPasswd) {
+                    loginUser($arrPost['login']);
+                    header("Location: /index.php");
+                    die();
+                }
+            } else {
+                array_push($arrAlerts, 'Пользователь не найден');
+            }
         } else {
             array_push($arrAlerts, 'Все поля должны быть заполнены');
         }
@@ -109,6 +125,14 @@ function routeRegister()
         'title' => 'Page/Register',
         'alerts' => $arrAlerts
     ]);
+}
+
+/**
+ * Выход из системы
+ */
+function routeLogout()
+{
+    logoutUser();
 }
 
 /**

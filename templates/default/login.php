@@ -25,7 +25,7 @@
     <div class="form-group">
         <label hidden for="password">Пароль</label>
         <input name="userPassword"
-               type="text"
+               type="password"
                class="form-control"
                id="password"
                placeholder="Пароль">

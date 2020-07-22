@@ -15,12 +15,21 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?op=login">Войти</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?op=register">Зарегистрироваться</a>
-                </li>
+                <? if (isLoggedUser()) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users.php?op=profile">Профиль <strong><?= $_SESSION['auth']['login'] ?></strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?op=logout">Выйти</a>
+                    </li>
+                <? } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?op=login">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?op=register">Зарегистрироваться</a>
+                    </li>
+                <? } ?>
             </ul>
         </div>
     </nav>

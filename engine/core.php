@@ -6,6 +6,8 @@
 define('ROOT', dirname(__DIR__));
 define('DEFAULT_TEMPLATE', 'default');
 
+session_start();
+
 require ROOT . '/config/main.php';
 require ROOT . '/engine/render.php';
 require ROOT . '/engine/router.php';

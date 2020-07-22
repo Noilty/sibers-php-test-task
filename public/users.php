@@ -11,26 +11,36 @@ function routeIndex()
 
 function routeList()
 {
+    onlyAuth();
+
     echo view('users/list');
 }
 
 function routeProfile()
 {
+    onlyAuth();
+
     echo view('users/profile');
 }
 
 function routeAdd()
 {
+    onlyAuth();
+
     echo view('users/add');
 }
 
 function routeEdit()
 {
+    onlyAuth();
+
     echo view('users/edit');
 }
 
 function routeDeleted()
 {
+    onlyAuth();
+
     echo view('users/deleted');
 }
 

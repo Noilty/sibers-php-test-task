@@ -3,8 +3,15 @@
  * File with function register user
  */
 
+/**
+ * Register
+ *
+ * @return array
+ */
 function register()
 {
+    $arrAlerts = array();
+
     $arrPost = array(
         'login' => xss($_POST['userLogin']),
         'password' => xss($_POST['userPassword']),
@@ -55,4 +62,6 @@ function register()
     } else {
         array_push($arrAlerts, 'Все поля должны быть заполнены');
     }
+
+    return $arrAlerts;
 }

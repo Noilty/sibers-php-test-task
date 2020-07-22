@@ -3,8 +3,15 @@
  * File with function auth user
  */
 
+/**
+ * Auth
+ *
+ * @return array
+ */
 function auth()
 {
+    $arrAlerts = array();
+
     $arrPost = array(
         'login' => xss($_POST['userLogin']),
         'password' => xss($_POST['userPassword'])
@@ -13,7 +20,9 @@ function auth()
     if (isEmpty($arrPost)) {
         $searchUser = R::getRow(
             'select * from users where login=:login limit 1',
-            ['login' => $arrPost['login']]
+            [
+                'login' => $arrPost['login']
+            ]
         );
 
         if (!empty($searchUser)) {
@@ -30,4 +39,6 @@ function auth()
     } else {
         array_push($arrAlerts, 'Все поля должны быть заполнены');
     }
+
+    return $arrAlerts;
 }

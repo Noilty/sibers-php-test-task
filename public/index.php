@@ -24,7 +24,7 @@ function routeLogin()
     $arrAlerts = array();
 
     if (isset($_POST['submitAuth'])) {
-        auth();
+        $arrAlerts = auth();
     }
 
     echo view('login', [
@@ -45,7 +45,7 @@ function routeRegister()
     $arrAlerts = array();
 
     if (isset($_POST['submitRegister'])) {
-        register();
+        $arrAlerts = register();
     }
 
     echo view('register', [

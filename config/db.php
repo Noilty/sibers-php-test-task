@@ -8,7 +8,7 @@ define('DB_NAME', 'sibers');
 define('DB_CHARSET', 'utf8');
 
 define('DB_USER_NAME', 'root');
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', '');
 define('DB_FROZEN', true);
 
 return array(

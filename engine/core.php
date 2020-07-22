@@ -14,6 +14,8 @@ require ROOT . '/engine/database.php';
 require ROOT . '/engine/render.php';
 require ROOT . '/engine/router.php';
 require ROOT . '/engine/auth.php';
+require ROOT . '/engine/login.php';
+require ROOT . '/engine/register.php';
 
 /**
  * Check for empty

@@ -4,11 +4,17 @@
  */
 require_once '../engine/core.php';
 
+/**
+ * Page Index
+ */
 function routeIndex()
 {
     routeProfile();
 }
 
+/**
+ * Page Profile
+ */
 function routeProfile()
 {
     onlyAuth();

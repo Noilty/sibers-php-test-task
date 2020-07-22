@@ -128,7 +128,7 @@ function routeRegister()
 }
 
 /**
- * Выход из системы
+ * Page Logout
  */
 function routeLogout()
 {

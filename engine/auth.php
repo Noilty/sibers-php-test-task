@@ -4,7 +4,7 @@
  */
 
 /**
- * Проверка авторизован ли пользователь
+ * Checking, if user is auth
  */
 function isLoggedUser()
 {
@@ -12,7 +12,9 @@ function isLoggedUser()
 }
 
 /**
- * Авторизация пользователя
+ * Auth users
+ *
+ * @param $login
  */
 function loginUser($login)
 {
@@ -30,7 +32,7 @@ function loginUser($login)
 }
 
 /**
- * Выход из системы
+ * Logout
  */
 function logoutUser()
 {
@@ -40,7 +42,9 @@ function logoutUser()
 }
 
 /**
- * Проверка на администратора (смотреть в функции логина)
+ * Checking for admin role (view in function login)
+ *
+ * @return bool
  */
 function isAdmin()
 {
@@ -48,7 +52,7 @@ function isAdmin()
 }
 
 /**
- * Функция для открытия доступа только авторизованным пользователям
+ * Access for only auth users
  */
 function onlyAuth()
 {
@@ -59,7 +63,7 @@ function onlyAuth()
 }
 
 /**
- * Функция для открытия доступа только администраторам
+ * Access for only admin
  */
 function onlyAdmin()
 {

@@ -25,7 +25,7 @@ R::setup(
 );
 
 /**
- * Обход ограничения на подчеркивания таблиц
+ * Fix Prefixes table
  * https://redbeanphp.com/index.php?p=/prefixes
  */
 R::ext('xdispense', function( $type ){

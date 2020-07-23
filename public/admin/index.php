@@ -15,7 +15,7 @@ function routeList()
 
     echo view('pages/admin/users/list', [
         'title' => 'Page/Admin/Users/List',
-        'arrListUsers' => listUsers()
+        'arrListUsers' => getListUsers()
     ]);
 }
 
@@ -26,7 +26,7 @@ function routeProfile()
 
     echo view('pages/admin/users/profile', [
         'title' => 'Page/Admin/Users/profile',
-        'userData' => userData($userId)
+        'userData' => getUserData($userId)
     ]);
 }
 

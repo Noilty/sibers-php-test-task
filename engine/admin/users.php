@@ -3,12 +3,12 @@
  * File with functions for working with users
  */
 
-function listUsers()
+function getListUsers()
 {
     return R::getAll('select id, name, surname from users');
 }
 
-function userData($id)
+function getUserData($id)
 {
     return R::getAll('select * from users where id=:id limit 1' , array(
         'id' => $id

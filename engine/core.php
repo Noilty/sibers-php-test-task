@@ -20,6 +20,18 @@ require ROOT . '/engine/register.php';
 require ROOT . '/engine/admin/users.php';
 
 /**
+ * Date format
+ *
+ * @param $date
+ * @param string $format
+ * @return false|string
+ */
+function dateFormat($date, $format = 'Y-m-d')
+{
+    return date_format(date_create($date), $format);
+}
+
+/**
  * Check for empty
  *
  * @param $array

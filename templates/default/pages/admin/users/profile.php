@@ -23,9 +23,9 @@ $userData = $userData[0];
                             <h1 class="card-title"><?= $userData['name'] ?> <?= $userData['surname'] ?> <strong>#<?= $userData['id'] ?></strong></h1>
                             <p class="card-text">Login: <strong><?= $userData['login'] ?></strong></p>
                             <p class="card-text">Gender: <strong><?= $userData['gender'] ?></strong></p>
-                            <p class="card-text">Birthday: <strong><strong><?= date_format(date_create($userData['birthday']),'Y-m-d') ?></strong></p>
+                            <p class="card-text">Birthday: <strong><?= dateFormat($userData['birthday'], 'Y-m-d') ?></strong></p>
                             <p class="card-text">
-                                <small class="text-muted">Registration date: <strong><?= date_format(date_create($userData['reg_date']),'Y-m-d') ?></strong></small>
+                                <small class="text-muted">Registration date: <strong><?= dateFormat($userData['reg_date'], 'Y-m-d') ?></strong></small>
                             </p>
                         </div>
                     </div>

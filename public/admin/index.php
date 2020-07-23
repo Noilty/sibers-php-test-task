@@ -50,8 +50,18 @@ function routeEdit()
 {
     onlyAdmin();
 
+    $userId = xss($_GET['id']);
+
+    $arrAlerts = array();
+
+    if (isset($_POST['submitEdit'])) {
+        $arrAlerts = editUser($userId);
+    }
+
     echo view('pages/admin/users/edit', [
-        'title' => 'Page/Admin/Users/Edit'
+        'title' => 'Page/Admin/Users/Edit',
+        'userData' => getUserData($userId),
+        'alerts' => $arrAlerts
     ]);
 }
 

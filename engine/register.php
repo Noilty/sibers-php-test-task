@@ -34,7 +34,7 @@ function register()
                 'select login from users where login=:login', array(
                     'login' => $arrPost['login']
                 )
-            );;
+            );
 
             if (!$searchUser) {
                 $newUser = R::dispense('users');

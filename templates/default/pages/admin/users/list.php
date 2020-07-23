@@ -25,7 +25,20 @@
                     <td><?= $user['id'] ?></td>
                     <td><?= $user['name'] ?></td>
                     <td><?= $user['surname'] ?></td>
-                    <td><a href="/admin/index.php?op=profile&id=<?= $user['id'] ?>">Profile</a></td>
+                    <td>
+                        <ul class="nav">
+                            <li class="pr-3">
+                                <a href="/admin/index.php?op=profile&id=<?= $user['id'] ?>">Profile</a>
+                            </li>
+                            <li class="pr-3">
+                                <a href="/admin/index.php?op=edit&id=<?= $user['id'] ?>">Edit</a>
+                            </li>
+                            <li>
+                                <a class="text-danger"
+                                   href="/admin/index.php?op=deleted&id=<?= $user['id'] ?>">Deleted</a>
+                            </li>
+                        </ul>
+                    </td>
                 </tr>
             <? } ?>
             </tbody>

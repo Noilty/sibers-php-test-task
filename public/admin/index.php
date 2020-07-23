@@ -34,8 +34,15 @@ function routeAdd()
 {
     onlyAdmin();
 
+    $arrAlerts = array();
+
+    if (isset($_POST['submitRegister'])) {
+        $arrAlerts = register();
+    }
+
     echo view('pages/admin/users/add', [
-        'title' => 'Page/Admin/Users/Add'
+        'title' => 'Page/Admin/Users/Add',
+        'alerts' => $arrAlerts
     ]);
 }
 

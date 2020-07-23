@@ -19,7 +19,9 @@ function routeProfile()
 {
     onlyAuth();
 
-    echo view('pages/users/profile');
+    echo view('pages/users/profile', [
+        'title' => 'Page/Users/Profile'
+    ]);
 }
 
 /**

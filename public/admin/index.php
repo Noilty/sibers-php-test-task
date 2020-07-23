@@ -13,28 +13,36 @@ function routeList()
 {
     onlyAdmin();
 
-    echo view('pages/admin/users/list');
+    echo view('pages/admin/users/list', [
+        'title' => 'Page/Admin/Users/List'
+    ]);
 }
 
 function routeAdd()
 {
     onlyAdmin();
 
-    echo view('pages/admin/users/add');
+    echo view('pages/admin/users/add', [
+        'title' => 'Page/Admin/Users/Add'
+    ]);
 }
 
 function routeEdit()
 {
     onlyAdmin();
 
-    echo view('pages/admin/users/edit');
+    echo view('pages/admin/users/edit', [
+        'title' => 'Page/Admin/Users/Edit'
+    ]);
 }
 
 function routeDeleted()
 {
     onlyAdmin();
 
-    echo view('pages/admin/users/deleted');
+    echo view('pages/admin/users/deleted', [
+        'title' => 'Page/Admin/Users/Deleted'
+    ]);
 }
 
 /**

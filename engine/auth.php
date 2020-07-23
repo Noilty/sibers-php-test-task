@@ -26,9 +26,19 @@ function loginUser($login)
     );
 
     $_SESSION['auth'] = [
-        'id' => $searchUser['id'],
+        'id' => (int)$searchUser['id'],
         'login' => $searchUser['login'],
     ];
+
+    $userRole = R::getAll('select role_id from user__role where user_id=:user_id' , [
+        'user_id' => $searchUser['id']
+    ]);
+
+    foreach ($userRole as $key => $roles) {
+        foreach ($roles as $role) {
+            ((int)$role === 1) ? $_SESSION['auth']['admin'] = true : $_SESSION['auth']['admin'] = false;
+        }
+    }
 }
 
 /**

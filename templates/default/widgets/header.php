@@ -19,6 +19,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/users.php?op=profile">Профиль <strong><?= $_SESSION['auth']['login'] ?></strong></a>
                     </li>
+                    <? if (isAdmin()) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="/admin/index.php">Admin</strong></a>
+                        </li>
+                    <? } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/index.php?op=logout">Выйти</a>
                     </li>

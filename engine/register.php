@@ -39,14 +39,24 @@ function register()
 
             if (!$searchUser) {
                 $newUser = R::dispense('users');
-
                 foreach ($arrPost as $key => $value) {
                     if ($key !== 're_password') {
                         $newUser->$key = $value;
                     }
                 }
 
-                if (R::store($newUser)) {
+                $idUser = R::count('users');
+                $roleUser = array(
+                    'user_id' => ($idUser+1),
+                    'role_id' => 2
+                );
+
+                $defaultRoleUser = R::xdispense('user__role');
+                foreach ($roleUser as $key => $value) {
+                    $defaultRoleUser->$key = $value;
+                }
+
+                if (R::store($newUser) && R::store($defaultRoleUser)) {
                     //loginUser($arrPost['login']);
                     //header("Location: /index.php");
                     array_push($arrAlerts, 'Регистрация успешна');

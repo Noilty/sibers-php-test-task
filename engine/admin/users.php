@@ -5,7 +5,7 @@
 
 function getListUsers()
 {
-    return R::getAll('select id, name, surname from users');
+    return R::getAll('select id, name, surname from users order by id desc');
 }
 
 function getUserData($id)

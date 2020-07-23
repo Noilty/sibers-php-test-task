@@ -13,6 +13,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Surname</th>
                 <th scope="col">#</th>
@@ -21,6 +22,7 @@
             <tbody>
             <? foreach ($arrListUsers as $user) { ?>
                 <tr>
+                    <td><?= $user['id'] ?></td>
                     <td><?= $user['name'] ?></td>
                     <td><?= $user['surname'] ?></td>
                     <td><a href="/admin/index.php?op=profile&id=<?= $user['id'] ?>">Profile</a></td>

@@ -17,6 +17,8 @@ require ROOT . '/engine/auth.php';
 require ROOT . '/engine/login.php';
 require ROOT . '/engine/register.php';
 
+require ROOT . '/engine/admin/users.php';
+
 /**
  * Check for empty
  *

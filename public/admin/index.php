@@ -14,7 +14,19 @@ function routeList()
     onlyAdmin();
 
     echo view('pages/admin/users/list', [
-        'title' => 'Page/Admin/Users/List'
+        'title' => 'Page/Admin/Users/List',
+        'arrListUsers' => listUsers()
+    ]);
+}
+
+function routeProfile()
+{
+    onlyAdmin();
+    $userId = xss($_GET['id']);
+
+    echo view('pages/admin/users/profile', [
+        'title' => 'Page/Admin/Users/profile',
+        'userData' => userData($userId)
     ]);
 }
 

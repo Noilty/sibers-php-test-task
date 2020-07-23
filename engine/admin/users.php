@@ -10,7 +10,12 @@ function getListUsers()
 
 function getUserData($id)
 {
-    return R::getAll('select * from users where id=:id limit 1' , array(
-        'id' => $id
-    ));;
+    $id = empty($id) ? 1 : $id;
+    $id = preg_replace('/[^0-9]/', '', $id);
+
+    return R::getAll(
+        'select * from users where id=:id limit 1', array(
+            'id' => (int)$id
+        )
+    );
 }

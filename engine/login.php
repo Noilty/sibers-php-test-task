@@ -19,8 +19,7 @@ function auth()
 
     if (isEmpty($arrPost)) {
         $searchUser = R::getRow(
-            'select * from users where login=:login limit 1',
-            array(
+            'select * from users where login=:login limit 1', array(
                 'login' => $arrPost['login']
             )
         );

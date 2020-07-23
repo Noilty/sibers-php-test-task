@@ -12,23 +12,29 @@ $userData = $userData[0];
         <?= view('widgets/admin/left-menu', [], false) ?>
     </div>
     <div class="col-10">
-        <div class="card mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="/assets/images/no-photo.jpg" class="card-img" alt="No photo">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h1 class="card-title"><?= $userData['name'] ?> <?= $userData['surname'] ?> #<?= $userData['id'] ?></h1>
-                        <p class="card-text">Login: <strong><?= $userData['login'] ?></strong></p>
-                        <p class="card-text">Gender: <strong><?= $userData['gender'] ?></strong></p>
-                        <p class="card-text">Birthday: <strong><strong><?= date_format(date_create($userData['birthday']),'Y-m-d') ?></strong></p>
-                        <p class="card-text">
-                            <small class="text-muted">Registration date: <strong><?= date_format(date_create($userData['reg_date']),'Y-m-d') ?></strong></small>
-                        </p>
+        <? if (!empty($userData)) { ?>
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="/assets/images/no-photo.jpg" class="card-img" alt="No photo">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title"><?= $userData['name'] ?> <?= $userData['surname'] ?> <strong>#<?= $userData['id'] ?></strong></h1>
+                            <p class="card-text">Login: <strong><?= $userData['login'] ?></strong></p>
+                            <p class="card-text">Gender: <strong><?= $userData['gender'] ?></strong></p>
+                            <p class="card-text">Birthday: <strong><strong><?= date_format(date_create($userData['birthday']),'Y-m-d') ?></strong></p>
+                            <p class="card-text">
+                                <small class="text-muted">Registration date: <strong><?= date_format(date_create($userData['reg_date']),'Y-m-d') ?></strong></small>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <? } else { ?>
+            <div class="alert alert-primary" role="alert">
+                Пользователь <strong>#<?= $_GET['id']?></strong> не найден
+            </div>
+        <? } ?>
     </div>
 </div>

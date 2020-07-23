@@ -31,10 +31,9 @@ function register()
             $arrPost['password'] = password_hash($arrPost['password'], PASSWORD_DEFAULT);
 
             $searchUser = R::getRow(
-                'select login from users where login=:login',
-                [
+                'select login from users where login=:login', array(
                     'login' => $arrPost['login']
-                ]
+                )
             );;
 
             if (!$searchUser) {

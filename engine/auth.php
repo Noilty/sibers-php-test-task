@@ -14,25 +14,18 @@ function isLoggedUser()
 /**
  * Auth users
  *
- * @param $login
+ * @param array $dataUser return functions auth() in file engine/login.php
  */
-function loginUser($login)
+function loginUser($dataUser = array())
 {
-    $searchUser = R::getRow(
-        'select * from users where login=:login',
-        [
-            'login' => $login
-        ]
-    );
-
     $_SESSION['auth'] = [
-        'id' => (int)$searchUser['id'],
-        'login' => $searchUser['login'],
+        'id' => (int)$dataUser['id'],
+        'login' => $dataUser['login'],
     ];
 
-    $userRole = R::getAll('select role_id from user__role where user_id=:user_id' , [
-        'user_id' => $searchUser['id']
-    ]);
+    $userRole = R::getAll('select role_id from user__role where user_id=:user_id' , array(
+        'user_id' => $dataUser['id']
+    ));
 
     foreach ($userRole as $key => $roles) {
         foreach ($roles as $role) {

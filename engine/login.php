@@ -20,16 +20,16 @@ function auth()
     if (isEmpty($arrPost)) {
         $searchUser = R::getRow(
             'select * from users where login=:login limit 1',
-            [
+            array(
                 'login' => $arrPost['login']
-            ]
+            )
         );
 
         if (!empty($searchUser)) {
             $bPasswd = password_verify($arrPost['password'], $searchUser['password']);
 
             if ($bPasswd) {
-                loginUser($arrPost['login']);
+                loginUser($searchUser);
                 header("Location: /index.php");
                 die();
             }

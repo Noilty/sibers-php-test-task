@@ -13,16 +13,16 @@ function routeList()
 {
     onlyAdmin();
 
-    $page = xss($_GET['page']);
+    $pageId = xss($_GET['page']);
 
-    $test = R::getAll('select count(*) from users');
-    $total = $test[0]['count(*)'];
-    $str_pag = ceil($total / ELEM_COUNT);
+    $usersCount = R::getAll('select count(*) from users');
+    $total = (int)$usersCount[0]['count(*)'];
+    $pagination = (int)ceil($total / ELEM_COUNT);
 
     echo view('pages/admin/users/list', [
         'title' => 'Page/Admin/Users/List',
-        'arrListUsers' => getListUsers($page),
-        'str_pag' => $str_pag
+        'arrListUsers' => getListUsers($pageId),
+        'iPagination' => $pagination
     ]);
 }
 

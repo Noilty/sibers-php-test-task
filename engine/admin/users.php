@@ -6,15 +6,15 @@
 /**
  * Description
  *
- * @param $currPage
+ * @param $pageId
  * @return array
  */
-function getListUsers($currPage)
+function getListUsers($pageId)
 {
-    $currPage = !empty($currPage) ? $currPage : 1; // current page
-    $currPage = preg_replace('/[^0-9]/', '', $currPage);
+    $pageId = !empty($pageId) ? $pageId : 1; // current page
+    $pageId = preg_replace('/[^0-9]/', '', $pageId);
 
-    $art = ($currPage * ELEM_COUNT) - ELEM_COUNT;
+    $art = ($pageId * ELEM_COUNT) - ELEM_COUNT;
 
     return R::getAll('SELECT id, name, surname FROM users order by id desc LIMIT :art, :elemCount', array(
         'art' => (int)$art,

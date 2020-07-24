@@ -21,7 +21,7 @@
                     </li>
                     <? if (isAdmin()) { ?>
                         <li class="nav-item">
-                            <a class="nav-link text-danger" href="/admin/index.php">Admin</strong></a>
+                            <a class="nav-link text-danger" href="/admin/index.php?op=list&page=1">Admin</strong></a>
                         </li>
                     <? } ?>
                     <li class="nav-item">

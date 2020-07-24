@@ -6,7 +6,7 @@
 define('ROOT', dirname(__DIR__));
 define('DEFAULT_TEMPLATE', 'default');
 
-define('ELEM_COUNT', 2);
+define('ELEM_COUNT', 5);
 
 session_start();
 

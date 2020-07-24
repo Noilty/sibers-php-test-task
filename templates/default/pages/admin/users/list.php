@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $arrListUsers
+ * @var $str_pag
  */
 ?>
 <h1>Page/Admin/Users/List</h1>
@@ -43,8 +44,15 @@
             <? } ?>
             </tbody>
         </table>
-        <? for($i = 1; $i <= $str_pag; $i++) { ?>
-            <a href=/admin/index.php?op=list&page=<?= $i ?>> <?= $i ?> </a>
-        <? } ?>
+        <ul class="pagination pagination-sm">
+            <? for($i = 1; $i <= $str_pag; $i++) { ?>
+                <a href="/admin/index.php?op=list&page=<?= $i ?>">
+                    <li class="page-item<?= ((int)$_GET['page'] === $i ? ' active' : '') ?>">
+                        <span class="page-link"><?= $i ?></span>
+                    </li>
+                </a>
+            <? } ?>
+        </ul>
+
     </div>
 </div>

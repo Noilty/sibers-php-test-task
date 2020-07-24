@@ -6,7 +6,7 @@ create table users
 	name varchar(50) null comment 'Имя',
 	surname varchar(50) null comment 'Фамилия',
 	gender varchar(24) not null comment 'Пол',
-	birthday timestamp null comment 'День рождение',
+	birthday datetime null comment 'День рождение',
 	reg_date timestamp not null default current_timestamp comment 'Дата регистрации',
 	constraint users_pk
 		primary key (id)

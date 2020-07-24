@@ -54,8 +54,12 @@ function routeEdit()
 
     $arrAlerts = array();
 
-    if (isset($_POST['submitEdit'])) {
-        $arrAlerts = editUser($userId);
+    if (isset($_POST['submitEditUserDataProfile'])) {
+        $arrAlerts = editUserDataProfile($userId);
+    }
+
+    if (isset($_POST['submitEditUserPersonalData'])) {
+        $arrAlerts = editUserPersonalData($userId);
     }
 
     echo view('pages/admin/users/edit', [

@@ -6,7 +6,7 @@
 $userData = $userData[0];
 ?>
 
-<h1>Page/Admin/Users/Edit/<?= $userData['name'] ?: 'Пользователь не найден' ?></h1>
+<h1>Page/Admin/Users/Edit/<?= $userData['login'] ?: 'Пользователь не найден' ?></h1>
 
 <div class="row">
     <div class="col-2">
@@ -63,7 +63,12 @@ $userData = $userData[0];
                                         </div>
                                     </div>
                                 </fieldset>
+                                <div class="form-group">
+                                    <button type="submit" name="submitEditUserDataProfile" class="btn btn-primary w-100">Сменить</button>
+                                </div>
+                            </form>
 
+                            <form method="post">
                                 <fieldset>
                                     <legend>Персональные данные</legend>
                                     <div class="form-group">
@@ -116,7 +121,7 @@ $userData = $userData[0];
                                 </fieldset>
 
                                 <div class="form-group">
-                                    <button type="submit" name="submitEdit" class="btn btn-primary w-100">Сменить</button>
+                                    <button type="submit" name="submitEditUserPersonalData" class="btn btn-primary w-100">Сменить</button>
                                 </div>
                             </form>
                         </div>

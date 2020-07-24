@@ -13,15 +13,23 @@ function routeList()
 {
     onlyAdmin();
 
+    $page = xss($_GET['page']);
+
+    $test = R::getAll('select count(*) from users');
+    $total = $test[0]['count(*)'];
+    $str_pag = ceil($total / ELEM_COUNT);
+
     echo view('pages/admin/users/list', [
         'title' => 'Page/Admin/Users/List',
-        'arrListUsers' => getListUsers()
+        'arrListUsers' => getListUsers($page),
+        'str_pag' => $str_pag
     ]);
 }
 
 function routeProfile()
 {
     onlyAdmin();
+
     $userId = xss($_GET['id']);
 
     echo view('pages/admin/users/profile', [

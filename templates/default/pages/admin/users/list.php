@@ -43,5 +43,8 @@
             <? } ?>
             </tbody>
         </table>
+        <? for($i = 1; $i <= $str_pag; $i++) { ?>
+            <a href=/admin/index.php?op=list&page=<?= $i ?>> <?= $i ?> </a>
+        <? } ?>
     </div>
 </div>

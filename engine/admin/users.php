@@ -6,11 +6,20 @@
 /**
  * Description
  *
+ * @param $currPage
  * @return array
  */
-function getListUsers()
+function getListUsers($currPage)
 {
-    return R::getAll('select id, name, surname from users order by id desc');
+    $currPage = !empty($currPage) ? $currPage : 1; // current page
+    $currPage = preg_replace('/[^0-9]/', '', $currPage);
+
+    $art = ($currPage * ELEM_COUNT) - ELEM_COUNT;
+
+    return R::getAll('SELECT id, name, surname FROM users order by id desc LIMIT :art, :elemCount', array(
+        'art' => (int)$art,
+        'elemCount' => ELEM_COUNT
+    ));
 }
 
 /**

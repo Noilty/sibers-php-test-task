@@ -46,13 +46,11 @@
         </table>
         <ul class="pagination pagination-sm">
             <? for($i = 1; $i <= $iPagination; $i++) { ?>
-                <a href="/admin/index.php?op=list&page=<?= $i ?>">
-                    <li class="page-item<?= ((int)$_GET['page'] === $i ? ' active' : '') ?>">
-                        <span class="page-link"><?= $i ?></span>
-                    </li>
-                </a>
+                <li class="page-item<?= ((int)$_GET['page'] === $i ? ' active' : '') ?>">
+                    <a class="page-link"
+                       href="/admin/index.php?op=list&page=<?= $i ?>"><?= $i ?></a>
+                </li>
             <? } ?>
         </ul>
-
     </div>
 </div>

@@ -82,18 +82,18 @@ function editUserDataProfile($id)
                 if (R::store($editUser)) {
                     //loginUser($arrPost['login']);
                     //header("Location: /index.php");
-                    array_push($arrAlerts, 'Данные изменены успешно');
+                    array_push($arrAlerts, 'Success, data changed!');
                 } else {
-                    array_push($arrAlerts, 'Что то пошло не так, не удалась изменить данные');
+                    array_push($arrAlerts, 'Error, data not changed!');
                 }
             } else {
-                array_push($arrAlerts, 'Имя пользователя уже используется');
+                array_push($arrAlerts, 'Name user already used by.');
             }
         } else {
-            array_push($arrAlerts, 'Пароли не совпадают');
+            array_push($arrAlerts, 'Different passwords.');
         }
     } else {
-        array_push($arrAlerts, 'Все поля должны быть заполнены');
+        array_push($arrAlerts, 'All fields must be filled.');
     }
 
     return $arrAlerts;
@@ -131,12 +131,12 @@ function editUserPersonalData($id)
         if (R::store($editUser)) {
             //loginUser($arrPost['login']);
             //header("Location: /index.php");
-            array_push($arrAlerts, 'Данные изменены успешно');
+            array_push($arrAlerts, 'Success, data changed!');
         } else {
-            array_push($arrAlerts, 'Что то пошло не так, не удалась изменить данные');
+            array_push($arrAlerts, 'Error, data not changed!');
         }
     } else {
-        array_push($arrAlerts, 'Все поля должны быть заполнены');
+        array_push($arrAlerts, 'All fields must be filed.');
     }
 
     return $arrAlerts;
@@ -158,9 +158,9 @@ function deleteUser($id)
     $deleteUser = R::load('users', $id);
 
     if (R::trash($deleteUser)) {
-        array_push($arrAlerts, 'Пользователь успешно удален');
+        array_push($arrAlerts, 'Success, user  deleted.');
     } else {
-        array_push($arrAlerts, 'Что то пошло не так');
+        array_push($arrAlerts, 'Error, user not deleted.');
     }
 
     return $arrAlerts;

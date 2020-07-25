@@ -58,18 +58,18 @@ function register()
                 if (R::store($newUser) && R::store($defaultRoleUser)) {
                     //loginUser($arrPost['login']);
                     //header("Location: /index.php");
-                    array_push($arrAlerts, 'Регистрация успешна');
+                    array_push($arrAlerts, 'Registration success.');
                 } else {
-                    array_push($arrAlerts, 'Регистрация не удалась');
+                    array_push($arrAlerts, 'Registration not success.');
                 }
             } else {
-                array_push($arrAlerts, 'Имя пользователя уже используется');
+                array_push($arrAlerts, 'Name user already used by.');
             }
         } else {
-            array_push($arrAlerts, 'Пароли не совпадают');
+            array_push($arrAlerts, 'Different passwords.');
         }
     } else {
-        array_push($arrAlerts, 'Все поля должны быть заполнены');
+        array_push($arrAlerts, 'All field must be filed.');
     }
 
     return $arrAlerts;

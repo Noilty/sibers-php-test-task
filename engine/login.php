@@ -33,10 +33,10 @@ function auth()
                 die();
             }
         } else {
-            array_push($arrAlerts, 'Пользователь не найден');
+            array_push($arrAlerts, 'Error, user not found.');
         }
     } else {
-        array_push($arrAlerts, 'Все поля должны быть заполнены');
+        array_push($arrAlerts, 'All fields must be filed.');
     }
 
     return $arrAlerts;

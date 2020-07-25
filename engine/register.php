@@ -24,20 +24,24 @@ function register()
     );
 
     if (isEmpty($arrPost)) {
-        if (LENGTH['LOGIN'][0] > strlen($arrPost['login']) or LENGTH['LOGIN'][1] < strlen($arrPost['login'])) {
-            $errLength[] = 'Длина от <b>Логина</b> '.LENGTH['LOGIN'][0].' до '.LENGTH['LOGIN'][1].' символов';
+        if (LENGTH['LOGIN'][0] > strlen($arrPost['login']) or
+            LENGTH['LOGIN'][1] < strlen($arrPost['login'])) {
+            $errLength[] = 'Lenght <b>Login</b> from '.LENGTH['LOGIN'][0].' before '.LENGTH['LOGIN'][1].' symbols!';
         }
 
-        if (LENGTH['PASSWD'][0] > strlen($arrPost['password']) or LENGTH['PASSWD'][1] < strlen($arrPost['password'])) {
-            $errLength[] = 'Длина от <b>Пароля</b> '.LENGTH['PASSWD'][0].' до '.LENGTH['PASSWD'][1].' символов';
+        if (LENGTH['PASSWD'][0] > strlen($arrPost['password']) or
+            LENGTH['PASSWD'][1] < strlen($arrPost['password'])) {
+            $errLength[] = 'Lenght <b>Passwd</b> from '.LENGTH['PASSWD'][0].' before '.LENGTH['PASSWD'][1].' symbols!';
         }
 
-        if (LENGTH['NAME'][0] > strlen($arrPost['name']) or LENGTH['NAME'][1] < strlen($arrPost['name'])) {
-            $errLength[] = 'Длина от <b>Имени</b> '.LENGTH['NAME'][0].' до '.LENGTH['NAME'][1].' символов';
+        if (LENGTH['NAME'][0] > strlen($arrPost['name']) or
+            LENGTH['NAME'][1] < strlen($arrPost['name'])) {
+            $errLength[] = 'Lenght <b>Name</b> from '.LENGTH['NAME'][0].' before '.LENGTH['NAME'][1].' symbols!';
         }
 
-        if (LENGTH['SURNAME'][0] > strlen($arrPost['surname']) or LENGTH['SURNAME'][1] < strlen($arrPost['surname'])) {
-            $errLength[] = 'Длина от <b>Фамилии</b> '.LENGTH['SURNAME'][0].' до '.LENGTH['SURNAME'][1].' символов';
+        if (LENGTH['SURNAME'][0] > strlen($arrPost['surname']) or
+            LENGTH['SURNAME'][1] < strlen($arrPost['surname'])) {
+            $errLength[] = 'Lenght <b>Surname</b> from '.LENGTH['SURNAME'][0].' before '.LENGTH['SURNAME'][1].' symbols!';
         }
 
         $bPasswd = $arrPost['password'] === $arrPost['re_password'];

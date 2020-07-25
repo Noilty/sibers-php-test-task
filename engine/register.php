@@ -24,6 +24,22 @@ function register()
     );
 
     if (isEmpty($arrPost)) {
+        if (LENGTH['LOGIN'][0] < $arrPost['login'] or LENGTH['LOGIN'][1] > $arrPost['login']) {
+            $errLength[] = 'Длина от <b>Логина</b> '.LENGTH['LOGIN'][0].' до '.LENGTH['LOGIN'][1].' символов';
+        }
+
+        if (LENGTH['PASSWD'][0] < $arrPost['password'] or LENGTH['PASSWD'][1] > $arrPost['password']) {
+            $errLength[] = 'Длина от <b>Пароля</b> '.LENGTH['PASSWD'][0].' до '.LENGTH['PASSWD'][1].' символов';
+        }
+
+        if (LENGTH['NAME'][0] < $arrPost['name'] or LENGTH['NAME'][1] > $arrPost['name']) {
+            $errLength[] = 'Длина от <b>Имени</b> '.LENGTH['NAME'][0].' до '.LENGTH['NAME'][1].' символов';
+        }
+
+        if (LENGTH['SURNAME'][0] < $arrPost['surname'] or LENGTH['SURNAME'][1] > $arrPost['surname']) {
+            $errLength[] = 'Длина от <b>Фамилии</b> '.LENGTH['SURNAME'][0].' до '.LENGTH['SURNAME'][1].' символов';
+        }
+
         $bPasswd = $arrPost['password'] === $arrPost['re_password'];
         unset($arrPost['re_password']);
 
@@ -55,12 +71,15 @@ function register()
                     $defaultRoleUser->$key = $value;
                 }
 
-                if (R::store($newUser) && R::store($defaultRoleUser)) {
+                if (count($errLength) < 0) {
+                    R::store($newUser);
+                    R::store($defaultRoleUser);
                     //loginUser($arrPost['login']);
                     //header("Location: /index.php");
                     array_push($arrAlerts, 'Registration success.');
                 } else {
                     array_push($arrAlerts, 'Registration not success.');
+                    $arrAlerts = array_merge($arrAlerts, $errLength);
                 }
             } else {
                 array_push($arrAlerts, 'Name user already used by.');

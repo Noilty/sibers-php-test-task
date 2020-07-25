@@ -22,7 +22,7 @@
                    class="form-control"
                    id="login"
                    placeholder="Имя пользователя (Логин / Никнейм)">
-            <small id="loginHelp" class="form-text text-muted">Длина от 3 до 16 символов</small>
+            <small id="loginHelp" class="form-text text-muted">Длина от <?= LENGTH['LOGIN'][0] ?> до <?= LENGTH['LOGIN'][1] ?> символов</small>
         </div>
 
         <div class="form-group">
@@ -34,7 +34,7 @@
                            class="form-control"
                            id="password"
                            placeholder="Пароль">
-                    <small id="passwordHelp" class="form-text text-muted">Длина от 3 до 16 символов</small>
+                    <small id="passwordHelp" class="form-text text-muted">Длина от <?= LENGTH['PASSWD'][0] ?> до <?= LENGTH['PASSWD'][1] ?> символов</small>
                 </div>
 
                 <div class="col">
@@ -60,7 +60,7 @@
                            class="form-control"
                            id="name"
                            placeholder="Имя">
-                    <small id="nameHelp" class="form-text text-muted">Длина от 3 до 32 символов</small>
+                    <small id="nameHelp" class="form-text text-muted">Длина от <?= LENGTH['NAME'][0] ?> до <?= LENGTH['NAME'][1] ?> символов</small>
                 </div>
 
                 <div class="col">
@@ -70,7 +70,7 @@
                            class="form-control"
                            id="lastName"
                            placeholder="Фамилия">
-                    <small id="lastNameHelp" class="form-text text-muted">Длина от 3 до 32 символов</small>
+                    <small id="lastNameHelp" class="form-text text-muted">Длина <?= LENGTH['SURNAME'][0] ?> до <?= LENGTH['SURNAME'][1] ?> символов</small>
                 </div>
             </div>
         </div>

@@ -81,8 +81,18 @@ function routeDeleted()
 {
     onlyAdmin();
 
+    $userId = xss($_GET['id']);
+
+    $arrAlerts = array();
+
+    if (isset($_POST['submitDeleted'])) {
+        $arrAlerts = deleteUser($userId);
+    }
+
     echo view('pages/admin/users/deleted', [
-        'title' => 'Page/Admin/Users/Deleted'
+        'title' => 'Page/Admin/Users/Deleted',
+        'userData' => getUserData($userId),
+        'alerts' => $arrAlerts
     ]);
 }
 

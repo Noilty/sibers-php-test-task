@@ -139,3 +139,21 @@ function editUserPersonalData($id)
 
     return $arrAlerts;
 }
+
+function deleteUser($id)
+{
+    $id = empty($id) ? 1 : $id;
+    $id = preg_replace('/[^0-9]/', '', $id);
+
+    $arrAlerts = array();
+
+    $deleteUser = R::load('users', $id);
+
+    if (R::trash($deleteUser)) {
+        array_push($arrAlerts, 'Пользователь успешно удален');
+    } else {
+        array_push($arrAlerts, 'Что то пошло не так');
+    }
+
+    return $arrAlerts;
+}

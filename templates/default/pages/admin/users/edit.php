@@ -18,6 +18,8 @@ $userData = $userData[0];
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="/assets/images/no-photo.jpg" class="card-img" alt="No photo">
+                        <a href="/admin/index.php?op=deleted&id=<?= $userData['id'] ?>"
+                           class="btn btn-danger w-100">Deleted</a>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

@@ -6,7 +6,7 @@
 define('ROOT', dirname(__DIR__));
 define('DEFAULT_TEMPLATE', 'default');
 
-define('ELEM_COUNT', 5);
+define('ELEM_COUNT', 5); // elem count on the page user list
 
 session_start();
 

@@ -4,11 +4,17 @@
  */
 require_once '../../engine/core.php';
 
+/**
+ * Page Admin/Index
+ */
 function routeIndex()
 {
     routeList();
 }
 
+/**
+ * Page Admin/List
+ */
 function routeList()
 {
     onlyAdmin();
@@ -26,6 +32,9 @@ function routeList()
     ]);
 }
 
+/**
+ * Page Admin/Profile
+ */
 function routeProfile()
 {
     onlyAdmin();
@@ -38,6 +47,9 @@ function routeProfile()
     ]);
 }
 
+/**
+ * Page Admin/Add
+ */
 function routeAdd()
 {
     onlyAdmin();
@@ -54,6 +66,9 @@ function routeAdd()
     ]);
 }
 
+/**
+ * Page Admin/Edit
+ */
 function routeEdit()
 {
     onlyAdmin();
@@ -77,6 +92,9 @@ function routeEdit()
     ]);
 }
 
+/**
+ * Page Admin/Deleted
+ */
 function routeDeleted()
 {
     onlyAdmin();

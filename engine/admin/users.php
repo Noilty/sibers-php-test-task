@@ -4,7 +4,7 @@
  */
 
 /**
- * Description
+ * Get list users for page admin/list
  *
  * @param $pageId
  * @return array
@@ -23,7 +23,7 @@ function getListUsers($pageId)
 }
 
 /**
- * Description
+ * Get user data for page admin/user/profile
  *
  * @param $id
  * @return array
@@ -41,7 +41,8 @@ function getUserData($id)
 }
 
 /**
- * Description
+ * Edit user profile for page admin/user/profile/edit
+ * Data profile
  *
  * @param $id
  * @return array
@@ -99,7 +100,8 @@ function editUserDataProfile($id)
 }
 
 /**
- * Description
+ * Edit user profile for page admin/user/profile/edit
+ * Personal data
  *
  * @param $id
  * @return array
@@ -140,6 +142,12 @@ function editUserPersonalData($id)
     return $arrAlerts;
 }
 
+/**
+ * Delete user profile for page admin/user/profile/delete
+ *
+ * @param $id
+ * @return array
+ */
 function deleteUser($id)
 {
     $id = empty($id) ? 1 : $id;

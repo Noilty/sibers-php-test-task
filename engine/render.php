@@ -4,7 +4,7 @@
  */
 
 /**
- * Description
+ * Page render
  *
  * @param $template
  * @param array $data
@@ -35,7 +35,7 @@ function view($template, $data = [], $withLayout = true, $layout = 'main')
 }
 
 /**
- * Description
+ * Get Template Content
  *
  * @param $filePath
  * @param array $data

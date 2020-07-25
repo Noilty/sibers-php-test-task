@@ -13,7 +13,7 @@ function routeIndex()
 }
 
 /**
- * Page Profile
+ * Page User/Profile
  */
 function routeProfile()
 {
